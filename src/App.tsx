@@ -1,7 +1,9 @@
+import Code from "./components/Code"
+
 export default function App() {
   return (
     <div>
-      <p>App</p>
+      <Code />
     </div>
   )
 }
