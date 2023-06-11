@@ -41,6 +41,10 @@ export default function Todos() {
     }
   }
 
+  function deleteTodo(timeStamp: Date) {
+    setTodos(todos.filter(({ created }) => created !== timeStamp))
+  }
+
   return (
     <section style={{ color: "white" }}>
       <CurrentTodo
@@ -55,6 +59,7 @@ export default function Todos() {
             key={`${todo.created}`}
             todo={todo}
             selectTodo={selectTodo}
+            deleteTodo={deleteTodo}
           />
         ))}
       </ul>
