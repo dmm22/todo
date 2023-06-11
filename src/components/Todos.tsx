@@ -1,6 +1,7 @@
 import { useState, useRef } from "react"
 import CurrentTodo from "./CurrentTodo"
 import Todo from "../types/todo"
+import SavedTodo from "./SavedTodo"
 
 export default function Todos() {
   const [todos, setTodos] = useState<Todo[]>([])
@@ -10,6 +11,11 @@ export default function Todos() {
   })
 
   const todoInputRef = useRef<HTMLInputElement | null>(null)
+
+  function selectTodo(timeStamp: Date) {
+    setCurrentTodo(todos.find(todo => todo.created === timeStamp) as Todo)
+    todoInputRef.current?.focus()
+  }
 
   function editCurrentTodo(newText: string) {
     setCurrentTodo(currentTodo => ({ ...currentTodo, text: newText }))
@@ -43,8 +49,15 @@ export default function Todos() {
         todoInputRef={todoInputRef}
         saveCurrentTodo={saveCurrentTodo}
       />
-      <pre>{JSON.stringify(currentTodo, null, 2)}</pre>
-      <pre>{JSON.stringify(todos, null, 2)}</pre>
+      <ul>
+        {todos.map(todo => (
+          <SavedTodo
+            key={`${todo.created}`}
+            todo={todo}
+            selectTodo={selectTodo}
+          />
+        ))}
+      </ul>
     </section>
   )
 }
