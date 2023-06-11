@@ -1,9 +1,11 @@
 import Code from "./components/Code"
+import Todos from "./components/Todos"
 
 export default function App() {
   return (
-    <div>
-      <Code />
-    </div>
+    <main>
+      {/* <Code /> */}
+      <Todos />
+    </main>
   )
 }
