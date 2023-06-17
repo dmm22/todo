@@ -46,7 +46,7 @@ export default function Todos() {
   }
 
   return (
-    <section style={{ color: "white" }}>
+    <section>
       <CurrentTodo
         currentTodo={currentTodo}
         editCurrentTodo={editCurrentTodo}

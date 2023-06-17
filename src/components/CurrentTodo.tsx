@@ -1,3 +1,5 @@
+import Button from "./Button"
+
 interface CurrentTodoProps {
   currentTodo: {
     text: string
@@ -22,7 +24,12 @@ export default function CurrentTodo({
         ref={todoInputRef}
         onKeyDown={e => saveCurrentTodo(e.key)}
       />
-      <button onClick={() => saveCurrentTodo()}>Save Todo</button>
+      <Button
+        text="Add Todo"
+        clickHandler={saveCurrentTodo}
+        color="text-gray-50"
+        background="bg-cyan-800"
+      />
     </div>
   )
 }

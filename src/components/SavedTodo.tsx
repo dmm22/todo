@@ -1,4 +1,5 @@
 import Todo from "../types/todo"
+import Button from "./Button"
 
 interface SavedTodoProps {
   todo: Todo
@@ -16,7 +17,12 @@ export default function SavedTodo({
   return (
     <div onClick={() => selectTodo(created)}>
       <p>{text}</p>
-      <button onClick={() => deleteTodo(created)}>Delete Todo</button>
+      <Button
+        text="Delete"
+        clickHandler={() => deleteTodo(created)}
+        color="text-zinc-950"
+        background="bg-sky-100"
+      />
     </div>
   )
 }

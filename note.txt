@@ -1,0 +1,5 @@
+--text: #06212d;
+--background: #f6fbfe;
+--primary-button: #0f4b67;
+--secondary-button: #e0f2fb;
+--accent: #125b7d;
